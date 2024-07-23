@@ -3,7 +3,7 @@
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
-    <Version>1.1.0.3</Version>
+    <Version>1.1.0.4</Version>
     <Description>Start a countdown with fun facts!</Description>
     <PackageProjectUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
