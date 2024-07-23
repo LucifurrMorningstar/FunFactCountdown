@@ -112,7 +112,7 @@ public sealed class Plugin : IDalamudPlugin
         // Ensure a length for countdown was passed
         if (countdown <= 0)
         {
-            this.chat.Print($"You must specify a length for the countdown. For example: \"ffcd st 15\"");
+            this.chat.Print($"You must specify a length for the countdown. For example: \"/ffcd 15\"");
             return;
         }
 
