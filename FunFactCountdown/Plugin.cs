@@ -173,7 +173,7 @@ public sealed class Plugin : IDalamudPlugin
         }
 
         // Run countdown
-        partyChat($"Beginning the fun fact countdown!");
+        partyChat($"Beginning the fun fact countdown! <se.6>");
         await Task.Delay(1000);
 
         partyChat($"/cd {countdown}");
@@ -182,7 +182,7 @@ public sealed class Plugin : IDalamudPlugin
         {
             int lastI = i == 0 ? countdown : factIntervals[i - 1];
             await Task.Delay((lastI - factIntervals[i]) * 1000);
-            partyChat($"{factIntervals[i]}s: {facts[i]} <se.6>");
+            partyChat($"{factIntervals[i]}s: {facts[i]} <se.12>");
         }
 
         return;
