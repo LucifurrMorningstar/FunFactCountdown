@@ -116,6 +116,13 @@ public sealed class Plugin : IDalamudPlugin
             return;
         }
 
+        // Max countdown is 30
+        if (countdown == 30)
+        {
+            this.chat.Print($"You cannot start a countdown of more than 30 seconds.");
+            return;
+        }
+
         List<int> factIntervals = Array.ConvertAll(args.Skip(1).ToArray(), e => int.Parse(e)).ToList();
 
         // Intervals can't be greater than the countdown length or less than 0

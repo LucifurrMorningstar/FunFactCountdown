@@ -3,13 +3,13 @@
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
-    <Version>1.0.0.0</Version>
+    <Version>1.1.0.0</Version>
     <Description>Start a countdown with fun facts!</Description>
-    <PackageProjectUrl>https://github.com/agdalton/FunFactCountdown</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/agdalton/FunFactCountdown</RepositoryUrl>
+    <RepositoryUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
