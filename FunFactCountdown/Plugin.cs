@@ -117,7 +117,7 @@ public sealed class Plugin : IDalamudPlugin
         }
 
         // Max countdown is 30
-        if (countdown == 30)
+        if (countdown > 30)
         {
             this.chat.Print($"You cannot start a countdown of more than 30 seconds.");
             return;
