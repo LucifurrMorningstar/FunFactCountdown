@@ -13,6 +13,7 @@ For example: **"/ffcd 15 10 5 0"** will start a 15s countdown and send a fun fac
 **NOTE**: This will send to your currently selected chat channel (i.e. Say, Party, CWLS, etc.)
 
 ![Preview of the Fun Fact Countdown](/Assets/Preview.png "Preview")
+
 **DISCLAIMER**: I have not read all the facts included. They may not be fun and they may not be facts. Facts sourced from https://www.djtech.net/humor/index.htm
 
 To add to Dalamud, include [my repo](https://raw.githubusercontent.com/LucifurrMorningstar/Dalamud/main/repo.json) in your Custom Plugin Repositories
