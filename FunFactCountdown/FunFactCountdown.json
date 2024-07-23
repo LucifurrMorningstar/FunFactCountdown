@@ -4,7 +4,7 @@
     "Punchline": "Start a countdown with fun facts sent to your chat at certain intervals!",
     "Description": "Use \"/ffcd <length> <interval1> <interval2> ...\" to begin the fun fact countdown.\n\nFor example, \"/ffcd 15 10 5 0\" will start a 15 second countdown and share a fun fact to your CURRENTLY SELECTED CHAT MODE at the 10 second, 5 second, and 0 second marks!\n\n***If no intervals are given, your party will enjoy a fun fact for every second of the countdown.",
     "ApplicableVersion": "any",
-    "AssemblyVersion": "1.0.0.0",
+    "AssemblyVersion": "1.1.0.0",
     "Tags": [
         "countdown",
         "entertainment",

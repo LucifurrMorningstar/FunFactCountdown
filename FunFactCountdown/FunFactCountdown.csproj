@@ -10,6 +10,7 @@
     <IsPackable>false</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</RepositoryUrl>
+    <PackageReleaseNotes>Fixed an issue wherein a countdown could be started with a length greater than the maximum allowed by FFXIV.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
