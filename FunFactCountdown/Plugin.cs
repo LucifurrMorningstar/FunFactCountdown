@@ -58,7 +58,7 @@ public sealed class Plugin : IDalamudPlugin
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUI;
 
         // Adds another button that is doing the same but for the main ui of the plugin
-        PluginInterface.UiBuilder.OpenMainUi += ToggleMainUI;
+        //PluginInterface.UiBuilder.OpenMainUi += ToggleMainUI;
     }
     private void DrawUI() => WindowSystem.Draw();
     public void ToggleConfigUI() => ConfigWindow.Toggle();
@@ -80,7 +80,7 @@ public sealed class Plugin : IDalamudPlugin
         // Require args
         if (args == "")
         {
-            ToggleMainUI();
+            ToggleConfigUI();
         } else
         {
             string[] arrArgs = args.Split(" ");

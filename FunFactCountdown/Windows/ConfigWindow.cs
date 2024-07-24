@@ -27,6 +27,10 @@ public class ConfigWindow : Window, IDisposable
 
     public override void Draw()
     {
+        ImGui.TextWrapped("Use /ffcd to start a countdown and send fun facts to your chat at specified intervals.\n\nFor example: \"/ffcd 15 10 5 0\" will start a 15s countdown and send a fun fact at 10s, 5s, and 0s.\nIf you don't specify any intervals, a Fun Fact is sent every second of the countdown (i.e. \"/ffcd 15\")\n\nNOTE: This will send to your currently selected chat channel (i.e. Say, Party, CWLS, etc.)");
+        ImGui.Spacing();
+        ImGui.Spacing();
+
         // Sound effect for the "Starting fun fact countdown!" chat message
         int beginningSE = Array.IndexOf(Configuration.SoundEffectsList, Configuration.StartingMessageSE);
         ImGui.Text("Starting Message Sound Effect");
