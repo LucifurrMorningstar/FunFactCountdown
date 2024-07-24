@@ -113,6 +113,7 @@ public sealed class Plugin : IDalamudPlugin
     public async void RunCountdown(string[] args)
     {
         // Ensure all args are numbers
+        args = args.Where(arg => !String.IsNullOrEmpty(arg)).ToArray();
         if (!args.All(e => e.All(Char.IsDigit)))
         {
             ChatClient($"All arguments must be numbers.", XivChatType.ErrorMessage);
