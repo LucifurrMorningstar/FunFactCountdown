@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 
@@ -13,14 +14,13 @@ public class MainWindow : Window, IDisposable
     // So that the user will see "My Amazing Window" as window title,
     // but for ImGui the ID is "My Amazing Window##With a hidden ID"
     public MainWindow(Plugin plugin)
-        : base("Fun Fact Countdown Settings##MainWindow")
+        : base("FFCD##MainWindow")
     {
-        SizeConstraints = new WindowSizeConstraints
-        {
-            MinimumSize = new Vector2(275, 130),
-            MaximumSize = new Vector2(float.MaxValue, float.MaxValue)
-        };
+        Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
+                ImGuiWindowFlags.NoScrollWithMouse;
 
+        Size = new Vector2(532, 290);
+        SizeCondition = ImGuiCond.Always;
         Plugin = plugin;
     }
 
@@ -28,8 +28,14 @@ public class MainWindow : Window, IDisposable
 
     public override void Draw()
     {
-        var currentItem = -1;
-        ImGui.ListBox("", ref currentItem, Plugin.Configuration.FactsList, Plugin.Configuration.FactsList.Length, 20);
-        
-    }   
+        ImGui.TextWrapped("Use /ffcd to start a countdown and send fun facts to your chat at specified intervals.\n\nFor example: \"/ffcd 15 10 5 0\" will start a 15s countdown and send a fun fact at 10s, 5s, and 0s. If you don't specify any intervals, a Fun Fact is sent every second of the countdown (i.e. \"/ffcd 15\")\n\nNOTE: This will send to your currently selected chat channel (i.e. Say, Party, CWLS, etc.)");
+        ImGui.Spacing();
+        ImGui.Spacing();
+
+        if (ImGui.Button("Settings"))
+        {
+            Plugin.ToggleConfigUI();
+        }
+
+    }
 }
