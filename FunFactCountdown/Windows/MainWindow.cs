@@ -8,7 +8,7 @@ namespace FunFactCountdown.Windows;
 
 public class MainWindow : Window, IDisposable
 {
-    private Plugin Plugin;
+    private readonly Plugin Plugin;
 
     // We give this window a hidden ID using ##
     // So that the user will see "My Amazing Window" as window title,
@@ -24,7 +24,10 @@ public class MainWindow : Window, IDisposable
         Plugin = plugin;
     }
 
-    public void Dispose() { }
+    public void Dispose() 
+    { 
+        GC.SuppressFinalize(this);
+    }
 
     public override void Draw()
     {

@@ -3,13 +3,13 @@
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
-    <Version>1.2.0.1</Version>
+    <Version>1.2.0.2</Version>
     <Description>Start a countdown with fun facts!</Description>
     <PackageProjectUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Changed the sound effect added to the chat message</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated settings window to size correctly</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</RepositoryUrl>
     <Title>Fun Fact Countdown</Title>
   </PropertyGroup>

@@ -15,15 +15,18 @@ public class ConfigWindow : Window, IDisposable
     // and the window ID will always be "###XYZ counter window" for ImGui
     public ConfigWindow(Plugin Plugin) : base("FFCD Settings###FFCD Settings")
     {
-        Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
-                ImGuiWindowFlags.NoScrollWithMouse;
+        //Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
+        //        ImGuiWindowFlags.NoScrollWithMouse;
         
-        Size = new Vector2(532, 290);
+        Size = new Vector2(532, 390);
         SizeCondition = ImGuiCond.Always;
         Configuration = Plugin.Configuration;
     }
 
-    public void Dispose() { }
+    public void Dispose() 
+    { 
+        GC.SuppressFinalize(this);
+    }
 
     public override void Draw()
     {
