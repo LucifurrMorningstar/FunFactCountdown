@@ -9,7 +9,7 @@
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Updated settings window to size correctly</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed an issue where erroneous whitespace in the command call would cause a FormatException</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</RepositoryUrl>
     <Title>Fun Fact Countdown</Title>
   </PropertyGroup>
