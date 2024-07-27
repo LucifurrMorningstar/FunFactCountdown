@@ -179,7 +179,7 @@ public sealed class Plugin : IDalamudPlugin
         // Run countdown
         if (Configuration.SendStartingMessage)
         {
-            ChatHook($"Starting the fun fact countdown! <se.{Configuration.StartingMessageSE}>");
+            ChatHook($"{Configuration.Channel} Starting the fun fact countdown! <se.{Configuration.StartingMessageSE}>");
             await Task.Delay(Configuration.StartingMessageDelayMs);
         }
         
@@ -191,7 +191,7 @@ public sealed class Plugin : IDalamudPlugin
             //If we want our first fact at 10s in a 15s countdown, calc 15-10 for a 5s delay
             int lastI = i == 0 ? cdLength : factIntervals[i - 1];
             await Task.Delay((lastI - factIntervals[i]) * 1000);
-            ChatHook($"{factIntervals[i]}s: {facts[i]} <se.{Configuration.FunFactSE}>");
+            ChatHook($"{Configuration.Channel} {factIntervals[i]}s: {facts[i]} <se.{Configuration.FunFactSE}>");
         }
 
         return;

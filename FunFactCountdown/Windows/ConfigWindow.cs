@@ -3,6 +3,7 @@ using System.Numerics;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using System.Linq;
 
 
 namespace FunFactCountdown.Windows;
@@ -30,14 +31,27 @@ public class ConfigWindow : Window, IDisposable
 
     public override void Draw()
     {
-        ImGui.TextWrapped("Use /ffcd to start a countdown and send fun facts to your chat at specified intervals.\n\nFor example: \"/ffcd 15 10 5 0\" will start a 15s countdown and send a fun fact at 10s, 5s, and 0s.\nIf you don't specify any intervals, a Fun Fact is sent every second of the countdown (i.e. \"/ffcd 15\")\n\nNOTE: This will send to your currently selected chat channel (i.e. Say, Party, CWLS, etc.)");
+        ImGui.TextWrapped("Use /ffcd to start a countdown and send fun facts to your chat at specified intervals.\n\nFor example: \"/ffcd 15 10 5 0\" will start a 15s countdown and send a fun fact at 10s, 5s, and 0s.\n\nIf you don't specify any intervals, a Fun Fact is sent every second of the countdown (i.e. \"/ffcd 15\")");
         ImGui.Spacing();
+        ImGui.Separator();
         ImGui.Spacing();
+
+        // Change chat channel
+        string[] channels = Configuration.Channels.Values.ToArray();
+        string channel = Configuration.Channel;
+        int iCh = Array.IndexOf(channels, channel);
+        ImGui.Text("Channel");
+        if (ImGui.Combo(" ", ref iCh, Configuration.Channels.Keys.ToArray(), channels.Length))
+        {
+            int newCh = iCh;
+            Configuration.Channel = channels[newCh];
+            Configuration.Save();
+        }
 
         // Sound effect for the "Starting fun fact countdown!" chat message
         int beginningSE = Array.IndexOf(Configuration.SoundEffectsList, Configuration.StartingMessageSE);
         ImGui.Text("Starting Message Sound Effect");
-        if (ImGui.Combo(" ", ref beginningSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length)) {
+        if (ImGui.Combo("  ", ref beginningSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length)) {
             string newSE = Configuration.SoundEffectsList[beginningSE];
             Configuration.StartingMessageSE = newSE;
             UIModule.PlayChatSoundEffect(Convert.ToUInt32(newSE));
@@ -61,7 +75,7 @@ public class ConfigWindow : Window, IDisposable
         // Sound effect for each fun fact that's sent
         ImGui.Text("Fun Fact Sound Effect");
         int ffSE = Array.IndexOf(Configuration.SoundEffectsList, Configuration.FunFactSE);
-        if (ImGui.Combo("  ", ref ffSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length))
+        if (ImGui.Combo("   ", ref ffSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length))
         {
             string newSE = Configuration.SoundEffectsList[ffSE];
             Configuration.FunFactSE = newSE;
