@@ -54,7 +54,7 @@ public class ConfigWindow : Window, IDisposable
         if (ImGui.Combo("  ", ref beginningSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length)) {
             string newSE = Configuration.SoundEffectsList[beginningSE];
             Configuration.StartingMessageSE = newSE;
-            UIModule.PlayChatSoundEffect(Convert.ToUInt32(newSE));
+            UIGlobals.PlayChatSoundEffect(Convert.ToUInt32(newSE));
             Configuration.Save();
         }
 
@@ -79,7 +79,7 @@ public class ConfigWindow : Window, IDisposable
         {
             string newSE = Configuration.SoundEffectsList[ffSE];
             Configuration.FunFactSE = newSE;
-            UIModule.PlayChatSoundEffect(Convert.ToUInt32(newSE));
+            UIGlobals.PlayChatSoundEffect(Convert.ToUInt32(newSE));
             Configuration.Save();
         }
 
