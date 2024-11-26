@@ -84,9 +84,10 @@ public class ConfigWindow : Window, IDisposable
         }
 
         // Enable Dad Mode
-        if (ImGui.Checkbox("Enable Dad Mode", ref toggle))
+        bool toggleDadMode = Configuration.enableDadMode;
+        if (ImGui.Checkbox("Enable Dad Mode", ref toggleDadMode))
         {
-            Configuration.enableDadMode = toggle;
+            Configuration.enableDadMode = toggleDadMode;
             Configuration.Save();
         }
 
