@@ -163,7 +163,10 @@ public sealed class Plugin : IDalamudPlugin
         List<string> facts = [];
         for (int i = 0; i < factIntervals.Count; i++)
         {
-            facts.Add(Configuration.FactsList[new Random().Next(0, Configuration.FactsList.Length - 1)]);
+            if (!Configuration.enableDadMode)
+                facts.Add(Configuration.FactsList[new Random().Next(0, Configuration.FactsList.Length - 1)]);
+            else
+                facts.Add(Configuration.DadJokes[new Random().Next(0, Configuration.DadJokes.Length - 1)]);
         }
 
         // Ensure number of facts == factIntervals
@@ -179,7 +182,8 @@ public sealed class Plugin : IDalamudPlugin
         // Run countdown
         if (Configuration.SendStartingMessage)
         {
-            ChatHook($"{Configuration.Channel} Starting the fun fact countdown! <se.{Configuration.StartingMessageSE}>");
+            string mode = Configuration.enableDadMode ? "Dad" : "fact";
+            ChatHook($"{Configuration.Channel} Starting the fun {mode} countdown! <se.{Configuration.StartingMessageSE}>");
             await Task.Delay(Configuration.StartingMessageDelayMs);
         }
         
