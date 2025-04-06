@@ -3,6 +3,7 @@
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
     <Version>1.4.2.0</Version>
     <Description>Start a countdown with fun facts!</Description>
     <PackageProjectUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</PackageProjectUrl>
