@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Dalamud.NET.Sdk/12.0.2">
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
-    <Version>1.4.1.0</Version>
+    <Version>1.4.2.0</Version>
     <Description>Start a countdown with fun facts!</Description>
     <PackageProjectUrl>https://github.com/LucifurrMorningstar/FunFactCountdown/</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
