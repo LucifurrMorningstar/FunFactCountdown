@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 using Dalamud.Interface.Windowing;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using System.Linq;
 
@@ -18,14 +18,14 @@ public class ConfigWindow : Window, IDisposable
     {
         Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
                 ImGuiWindowFlags.NoScrollWithMouse;
-        
+
         Size = new Vector2(532, 390);
         SizeCondition = ImGuiCond.Always;
         Configuration = Plugin.Configuration;
     }
 
-    public void Dispose() 
-    { 
+    public void Dispose()
+    {
         GC.SuppressFinalize(this);
     }
 
@@ -51,7 +51,8 @@ public class ConfigWindow : Window, IDisposable
         // Sound effect for the "Starting fun fact countdown!" chat message
         int beginningSE = Array.IndexOf(Configuration.SoundEffectsList, Configuration.StartingMessageSE);
         ImGui.Text("Starting Message Sound Effect");
-        if (ImGui.Combo("  ", ref beginningSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length)) {
+        if (ImGui.Combo("  ", ref beginningSE, Configuration.SoundEffectsList, Configuration.SoundEffectsList.Length))
+        {
             string newSE = Configuration.SoundEffectsList[beginningSE];
             Configuration.StartingMessageSE = newSE;
             UIGlobals.PlayChatSoundEffect(Convert.ToUInt32(newSE));
